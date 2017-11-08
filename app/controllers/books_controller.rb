@@ -22,6 +22,12 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
+  def update
+    @book = Book.find(params[:id])
+    @book.update_attributes(book_params)
+    redirect_to root_path
+  end
+  
   private
 
   def book_params
