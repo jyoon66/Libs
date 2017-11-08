@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -38,6 +38,10 @@ class BooksController < ApplicationController
   
   def destroy
     @book = Book.find(params[:id])
+    if @book.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end
+    
     @book.destroy
     redirect_to root_path
   end
