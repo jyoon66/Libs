@@ -7,7 +7,7 @@
 
 <% @books.each do |book| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to book.name, book_path(book) %></h1>
+    <h1><%= link_to book.title, book_path(book) %></h1>
     <i>by <%= book.author %></i><br /><br />
     <p><%= book.description %></p><br />
     

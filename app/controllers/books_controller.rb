@@ -10,8 +10,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    current_user.books.create(book_params)
-    redirect_to root_path
+    @book = current_user.books.create(book_params)
+    if @book.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
   
   def show
@@ -28,12 +32,17 @@ class BooksController < ApplicationController
   
   def update
     @book = Book.find(params[:id])
+    
     if @book.user != current_user
       return render text: 'Not Allowed', status: :forbidden
     end
     
     @book.update_attributes(book_params)
-    redirect_to root_path
+    if @book.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
   
   def destroy
@@ -49,7 +58,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :author, :description)
+    params.require(:book).permit(:title, :author, :description)
   end
 
 end
