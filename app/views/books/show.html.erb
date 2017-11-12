@@ -7,6 +7,21 @@
   </div>
   <br class="clear" />
   <p><%= @book.description %></p>
+  <br class="clear" />
+  <h1>Video Review:</h1><br />
+  <div class="image-container">
+    <video id="my-video" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" 
+    poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+      <source src="<%= @book.video.to_s %>" type='video/mp4'>
+      <noscript>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </noscript>
+    </video>
+  </div>
+  <br />
   <div class="float-right">
     <% if current_user && current_user == @book.user %>
       <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>
