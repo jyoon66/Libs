@@ -9,6 +9,9 @@
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to book.title, book_path(book) %></h1>
     <i>by <%= book.author %></i><br /><br />
+    <div class="image-container">
+      <%= image_tag book.image, class: 'img-fluid' %>
+    </div><br />
     <p><%= book.description %></p><br />
     
     <% if book.user.present? %>

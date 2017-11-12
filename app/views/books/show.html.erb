@@ -2,6 +2,10 @@
   <h1><%= @book.title %></h1>
   <i>by <%= @book.author %></i>
   <br /><br />
+  <div class="image-container">
+    <%= image_tag @book.image, class: 'img-fluid' %>
+  </div>
+  <br class="clear" />
   <p><%= @book.description %></p>
   <div class="float-right">
     <% if current_user && current_user == @book.user %>

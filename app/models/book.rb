@@ -1,6 +1,5 @@
 class Book < ApplicationRecord
+  mount_uploader :image, ImageUploader
   belongs_to :user
-  validates :title, presence: true
-  validates :author, presence: true
-  validates :description, presence: true
+  validates :title, :author, :description, presence: true
 end
