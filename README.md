@@ -1,24 +1,3 @@
-# README
+# Libs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A book review website where you can add book details (title, author, description, cover image), video reviews, and even access written Goodreads reviews. You can access it at: http://libs-james-yoon.herokuapp.com/
